@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Globo } from "./components/Globo";
+import { Puntuacion } from "./components/Puntuacion";
 
 function App() {
   const [posicionTop, setPosicionTop] = useState(window.innerHeight / 3);
@@ -30,19 +32,14 @@ function App() {
   };
   return (
     <>
-      <div class="puntuacion">
-        <p>{puntuacion}</p>
-      </div>
-      <i
-        class="fab fa-fly"
-        style={{
-          top: posicionTop + "px",
-          left: posicionLeft + "px",
-          fontSize: tamanyo + "em",
-        }}
-        onMouseOver={cambiarGlobo}
-        onClick={puntuacionUp}
-      ></i>
+      <Puntuacion puntuacion={puntuacion} />
+      <Globo
+        puntuacionUp={puntuacionUp}
+        cambiarGlobo={cambiarGlobo}
+        posicionTop={posicionTop}
+        posicionLeft={posicionLeft}
+        tamanyo={tamanyo}
+      />
     </>
   );
 }
